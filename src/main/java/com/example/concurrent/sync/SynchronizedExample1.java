@@ -3,7 +3,7 @@ package com.example.concurrent.sync;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
-public class SynchronizedExample1 {
+public  class   SynchronizedExample1 {
 
 	public void test1(int num) {
 		//1.修饰代码块：大括号括起来的代码，作用于调用对象
@@ -17,6 +17,12 @@ public class SynchronizedExample1 {
 	public synchronized void test2(int num) {
 		for (int i = 0; i < 10; i++) {
 			System.out.println("test2(){} - "+num+" " + i);
+		}
+	}
+	
+	public synchronized static void test3(int num) {
+		for (int i = 0; i < 10; i++) {
+			System.out.println("test3(){} - "+num+" " + i);
 		}
 	}
 	public static void main(String[] args) {
@@ -34,8 +40,20 @@ public class SynchronizedExample1 {
 		
 		//修饰函数
 		//相同的对象，同步执行
-		pool.execute(()->example1.test2(1));
-		pool.execute(()->example1.test2(2));
+//		pool.execute(()->example1.test2(1));
+//		pool.execute(()->example1.test2(1));
+		//不同的对象 ，异步执行
+//		pool.execute(()->example1.test2(1));
+//		pool.execute(()->example2.test2(2));
+		
+		//修饰静态函数 作用于所有的对象
+		//1.相同对象同步执行
+//		pool.submit(()->example1.test3(1));
+//		pool.submit(()->example1.test3(2));
+		
+		//2.不同对象 同步执行
+		pool.submit(()->example1.test3(1));
+		pool.submit(()->example2.test3(2));
 		pool.shutdown();
 	}
 }
