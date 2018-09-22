@@ -43,6 +43,15 @@
             <groupId>ch.qos.logback</groupId>
             <artifactId>logback-core</artifactId>
         </dependency>
+        <dependency>
+        	<groupId>com.google.guava</groupId>
+        	<artifactId>guava</artifactId>
+        	<version>18.0</version>
+        </dependency>
+        <dependency>
+        	<groupId>joda-time</groupId>
+        	<artifactId>joda-time</artifactId>
+        </dependency>
 	</dependencies>
 
 	<build>
