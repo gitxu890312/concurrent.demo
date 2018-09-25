@@ -13,13 +13,13 @@ public  class   SynchronizedExample1 {
 			}
 		}
 	}
-
+	//2.修饰函数：作用于调用对象
 	public synchronized void test2(int num) {
 		for (int i = 0; i < 10; i++) {
 			System.out.println("test2(){} - "+num+" " + i);
 		}
 	}
-	
+	//3.修饰静态函数：作用于所有调用对象
 	public synchronized static void test3(int num) {
 		for (int i = 0; i < 10; i++) {
 			System.out.println("test3(){} - "+num+" " + i);
