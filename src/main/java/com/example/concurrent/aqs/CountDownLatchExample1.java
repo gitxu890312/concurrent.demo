@@ -25,8 +25,8 @@ public class CountDownLatchExample1 {
 				}
 			});
 		}
-//		latch.await();//一直等待
-		latch.await(2,TimeUnit.MILLISECONDS);//等待指定的时间
+		latch.await();//一直等待
+//		latch.await(2,TimeUnit.MILLISECONDS);//等待指定的时间
 		System.out.println("finish:"+lists.size());
 		pool.shutdownNow();
 	}

@@ -5,8 +5,8 @@ import java.io.File;
 public class RenameFileUtil {
 
 	public static void main(String[] args) {
-		String replaceName = "【www.zxit8.com】";
-		String folder = "F:\\xum\\wangpan\\video\\030 Java读源码之Netty深入剖析";
+		String replaceName = "[www.52yzzy.com 吾爱优质资源网]";
+		String folder = "E:\\video\\零基础玩转Nginx入门实战高级视频教程";
 		reName(folder, replaceName);
 	}
 	public static void reName(String folderName,String replaceName) {
@@ -19,7 +19,7 @@ public class RenameFileUtil {
 			String name = file.getName();
 			int indexOf = name.indexOf(replaceName);
 			if(indexOf>=0) {
-				String targetName = file.getName().replaceAll(replaceName, "");
+				String targetName = file.getName().substring(indexOf+replaceName.length());
 				file.renameTo(new File(file.getParentFile(), targetName));
 			}
 		}
