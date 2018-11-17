@@ -7,6 +7,10 @@ import lombok.extern.slf4j.Slf4j;
 @Slf4j
 public class ThreadPoolExample2 {
 
+	/**
+	 * 定长线程池，队列满后再提交任务会，会将任务插入到队列 不会丢弃任务
+	 * @param args
+	 */
 	public static void main(String[] args) {
 		ExecutorService pool = Executors.newFixedThreadPool(4);
 		
