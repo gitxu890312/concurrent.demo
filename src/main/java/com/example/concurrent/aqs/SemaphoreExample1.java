@@ -13,7 +13,7 @@ public class SemaphoreExample1 {
 	private static int num = 20;
 	private static Logger logger = LoggerFactory.getLogger(SemaphoreExample1.class);
 
-	public static void main(String[] args) {
+	public static void main(String[] args) throws InterruptedException {
 		ExecutorService pool = Executors.newCachedThreadPool();
 		// 控制并发的线程数量
 		Semaphore semaphore = new Semaphore(3);
@@ -30,6 +30,9 @@ public class SemaphoreExample1 {
 				}
 			});
 		}
+		semaphore.acquire(3);
+		System.out.println("end");
+		System.out.println(semaphore.availablePermits());
 		pool.shutdown();
 	}
 	public static void test(int num) throws InterruptedException {
